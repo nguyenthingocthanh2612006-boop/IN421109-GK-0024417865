@@ -21,7 +21,9 @@ stateDiagram-v2
 2. OCP – Nguyên lý đóng/mở (dòng 11–14): Khi thêm kênh thông báo mới, phải sửa trực tiếp các câu lệnh if/else trong EventService.
 3. DIP – Nguyên lý đảo ngược phụ thuộc (dòng 8, 12, 14): EventService phụ thuộc trực tiếp vào SqlConnection, EmailSender và SmsSender thay vì phụ thuộc vào các interface.
 ## Câu 4b
-
+Git merge: Gộp các thay đổi từ nhánh khác vào nhánh hiện tại, giữ nguyên lịch sử commit và có thể tạo thêm merge commit.
+Git rebase: Chuyển các commit của nhánh hiện tại lên một commit nền mới, giúp lịch sử Git tuyến tính và dễ theo dõi hơn.
+Không nên dùng rebase: Khi các commit đã được push lên nhánh dùng chung và có người khác đang làm việc, vì rebase viết lại lịch sử commit, dễ gây xung đột và mất đồng bộ.
 ## Câu 5a
 ## Câu 5b
 ## Câu 5d
