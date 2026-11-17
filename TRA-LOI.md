@@ -1,9 +1,27 @@
 # BÀI KIỂM TRA GIỮA KỲ IN421109
 ## Câu 1a
+1. Đóng gói (Encapsulation): Giúp bảo vệ dữ liệu bên trong đối tượng, không cho phép bên ngoài thay đổi trực tiếp. Minh họa: lớp Member trong file Member.cs, sử dụng private set để bảo vệ thuộc tính.
+2. Trừu tượng (Abstraction): Chỉ cung cấp các chức năng cần thiết và ẩn đi cách thực hiện bên trong. Minh họa: interface IEventRepository trong file IEventRepository.cs, định nghĩa các phương thức thao tác với sự kiện.
+3. Kế thừa (Inheritance): Cho phép lớp con kế thừa các thuộc tính và phương thức từ lớp cha. Minh họa: lớp EventsController trong file EventsController.cs, kế thừa ControllerBase.
+4. Đa hình (Polymorphism): Cho phép các lớp thực hiện cùng một interface nhưng có cách xử lý khác nhau. Minh họa: lớp EmailNotificationService và SmsNotificationService triển khai INotificationService trong các file tương ứng.
 ## Câu 1b
+Vấn đề 1: Thuộc tính Id và Email có public set, cho phép bên ngoài thay đổi dữ liệu trực tiếp, không đảm bảo tính đóng gói.
+Vấn đề 2: Constructor public cho phép tạo đối tượng Member không có email hợp lệ, dẫn đến dữ liệu không đúng yêu cầu.
+Cách khắc phục: Sử dụng private set, constructor private và factory method Create() để kiểm tra email không rỗng và phải chứa ký tự @.
 ## Câu 2a
+```mermaid
+stateDiagram-v2
+    [*] --> Pending: Create()
+    Pending --> Confirmed: Confirm()
+    Pending --> Cancelled: Cancel()
+    Confirmed --> Cancelled: Cancel()
+```
 ## Câu 3a
+1. SRP – Nguyên lý trách nhiệm đơn nhất (dòng 6–14): EventService vừa kiểm tra dữ liệu, lưu sự kiện, ghi log và gửi thông báo, đảm nhận quá nhiều trách nhiệm.
+2. OCP – Nguyên lý đóng/mở (dòng 11–14): Khi thêm kênh thông báo mới, phải sửa trực tiếp các câu lệnh if/else trong EventService.
+3. DIP – Nguyên lý đảo ngược phụ thuộc (dòng 8, 12, 14): EventService phụ thuộc trực tiếp vào SqlConnection, EmailSender và SmsSender thay vì phụ thuộc vào các interface.
 ## Câu 4b
+
 ## Câu 5a
 ## Câu 5b
 ## Câu 5d
