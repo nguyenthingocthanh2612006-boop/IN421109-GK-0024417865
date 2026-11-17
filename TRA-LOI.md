@@ -39,4 +39,5 @@ flowchart TD
     APP --> DOM
 ```
 ## Câu 5b
+EduHub.Domain không được tham chiếu tới EduHub.Infrastructure vì theo nguyên lý Clean Architecture, lớp Domain chứa nghiệp vụ cốt lõi và phải độc lập với công nghệ lưu trữ. Nếu Domain phụ thuộc Infrastructure thì khi thay đổi cách lưu dữ liệu sẽ ảnh hưởng đến nghiệp vụ, khiến hệ thống khó bảo trì và kiểm thử.
 ## Câu 5d
