@@ -25,5 +25,18 @@ Git merge: Gộp các thay đổi từ nhánh khác vào nhánh hiện tại, gi
 Git rebase: Chuyển các commit của nhánh hiện tại lên một commit nền mới, giúp lịch sử Git tuyến tính và dễ theo dõi hơn.
 Không nên dùng rebase: Khi các commit đã được push lên nhánh dùng chung và có người khác đang làm việc, vì rebase viết lại lịch sử commit, dễ gây xung đột và mất đồng bộ.
 ## Câu 5a
+Clean Architecture gồm 4 lớp, với chiều phụ thuộc hướng từ lớp ngoài vào lớp trong:
+```mermaid
+flowchart TD
+    API["EduHub.API: EventsController"]
+    INF["EduHub.Infrastructure: InMemoryEventRepository"]
+    APP["EduHub.Application: EventService, IEventRepository"]
+    DOM["EduHub.Domain: Event"]
+    API --> APP
+    API --> INF
+    INF --> APP
+    INF --> DOM
+    APP --> DOM
+```
 ## Câu 5b
 ## Câu 5d
