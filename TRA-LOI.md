@@ -43,3 +43,6 @@ EduHub.Domain không được tham chiếu tới EduHub.Infrastructure vì theo 
 ## Câu 5d
 Khi đăng ký InMemoryEventRepository bằng AddScoped, mỗi HTTP request sẽ tạo một instance repository mới. Vì dữ liệu được lưu trong List<Event> không static, nên sau khi POST kết thúc, dữ liệu của instance cũ không được giữ lại cho request GET tiếp theo.
 Để khắc phục, em đăng ký IEventRepository với InMemoryEventRepository bằng AddSingleton trong Program.cs. Cách này giúp các request sử dụng chung một instance repository và giữ dữ liệu trong bộ nhớ khi ứng dụng còn chạy.
+```csharp
+    builder.Services.AddSingleton<IEventRepository,InMemoryEventRepository>();
+```
