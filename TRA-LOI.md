@@ -41,3 +41,5 @@ flowchart TD
 ## Câu 5b
 EduHub.Domain không được tham chiếu tới EduHub.Infrastructure vì theo nguyên lý Clean Architecture, lớp Domain chứa nghiệp vụ cốt lõi và phải độc lập với công nghệ lưu trữ. Nếu Domain phụ thuộc Infrastructure thì khi thay đổi cách lưu dữ liệu sẽ ảnh hưởng đến nghiệp vụ, khiến hệ thống khó bảo trì và kiểm thử.
 ## Câu 5d
+Khi đăng ký InMemoryEventRepository bằng AddScoped, mỗi HTTP request sẽ tạo một instance repository mới. Vì dữ liệu được lưu trong List<Event> không static, nên sau khi POST kết thúc, dữ liệu của instance cũ không được giữ lại cho request GET tiếp theo.
+Để khắc phục, em đăng ký IEventRepository với InMemoryEventRepository bằng AddSingleton trong Program.cs. Cách này giúp các request sử dụng chung một instance repository và giữ dữ liệu trong bộ nhớ khi ứng dụng còn chạy.
